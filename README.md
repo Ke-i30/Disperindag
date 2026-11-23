@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sistem Informasi Survei Kepuasan Masyarakat (SKM) - Disperindag
 
-## Getting Started
+Aplikasi Survei Kepuasan Masyarakat (SKM) berbasis web untuk evaluasi pelayanan Tera dan Tera Ulang pada Unit Pelaksana Teknis Metrologi Legal, Dinas Perdagangan dan Perindustrian.
 
-First, run the development server:
+Dibangun menggunakan **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, dan **MySQL**.
 
+---
+
+## Fitur Utama
+
+- **Halaman Publik (Masyarakat):**
+  - Desain modern *Dark Minimalist Industrial* responsif (mobile-first untuk scan QR Code).
+  - Formulir penilaian ringkas tanpa memungut data sensitif (tanpa NIK).
+  - Skala evaluasi keramahan, kecepatan, transparansi biaya, dan kepuasan umum.
+  - Kolom kritik dan saran terbuka.
+  - Standar alur operasional prosedur (SOP) dan tanya jawab teknis komparasi.
+- **Panel Administrator:**
+  - URL login rahasia (*hidden secret entrance*).
+  - Dashboard analitik KPI (Total Responden, Rasio Tera vs Tera Ulang, Nilai Indeks IKM).
+  - Visualisasi grafik distribusi kepuasan masyarakat.
+  - Tabel rekapitulasi data hasil survei dengan filter, pencarian, dan pagination.
+  - Manajemen butir pertanyaan kuesioner dinamis (CRUD pertanyaan).
+  - Ekspor laporan rekapitulasi ke format Excel (`.xlsx`).
+  - Generator gambar QR Code loket siap unduh dan cetak.
+  - Sidebar modular yang dapat diperluas dan diperkecil (*collapsible*).
+
+---
+
+## Panduan Instalasi & Menjalankan Proyek
+
+### 1. Prasyarat
+- [Node.js](https://nodejs.org/) versi 18.x atau yang lebih baru.
+- Layanan database **MySQL** (misalnya melalui XAMPP, Laragon, Docker, atau MySQL Server lokal).
+
+### 2. Kloning Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <URL_REPOSITORY_ANDA>
+cd Disperindag
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Instalasi Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Konfigurasi Lingkungan (`.env`)
+Salin file template `.env.example` menjadi `.env.local`:
+```bash
+cp .env.example .env.local
+```
+Sesuaikan kredensial database MySQL Anda di dalam file `.env.local`:
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=password_mysql_anda
+DB_NAME=disperindag_skm
+JWT_SECRET=buat_kunci_rahasia_acak_anda
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. Inisialisasi Basis Data & Akun Admin Default
+Jalankan skrip migrasi database otomatis untuk membuat tabel, butir pertanyaan kuesioner awal, dan akun admin:
+```bash
+node scripts/init-db.mjs
+node scripts/seed-admin.mjs
+```
 
-## Learn More
+### 6. Menjalankan Server Pengembangan
+```bash
+npm run dev
+```
+Buka browser pada:
+- **Halaman Depan (Survei Publik):** `http://localhost:3000`
+- **Login Admin (URL Rahasia):** `http://localhost:3000/admin/kelola-loket-internal`
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Lisensi
+Hak Cipta © 2026 Dinas Perdagangan dan Perindustrian.
