@@ -34,7 +34,7 @@ Dibangun menggunakan **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**,
 
 ### 2. Kloning Repository
 ```bash
-git clone <URL_REPOSITORY_ANDA>
+git clone https://github.com/Ke-i30/Disperindag
 cd Disperindag
 ```
 
