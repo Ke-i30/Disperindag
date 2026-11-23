@@ -53,9 +53,9 @@ Sesuaikan kredensial database MySQL Anda di dalam file `.env.local`:
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
-DB_PASSWORD=password_mysql_anda
+DB_PASSWORD=password_mysql
 DB_NAME=disperindag_skm
-JWT_SECRET=buat_kunci_rahasia_acak_anda
+JWT_SECRET=buat_kunci_rahasia_acak
 ```
 
 ### 5. Inisialisasi Basis Data & Akun Admin Default
