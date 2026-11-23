@@ -48,7 +48,7 @@ Salin file template `.env.example` menjadi `.env.local`:
 ```bash
 cp .env.example .env.local
 ```
-Sesuaikan kredensial database MySQL Anda di dalam file `.env.local`:
+Sesuaikan kredensial database MySQL di dalam file `.env.local`:
 ```env
 DB_HOST=localhost
 DB_PORT=3306
